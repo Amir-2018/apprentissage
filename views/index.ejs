@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <title>Wort für Wort — Révise ton allemand</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="page">
+ 
+
+    <main>
+   
+      <div class="layout">
+        <section class="panel study-panel" aria-labelledby="study-title">
+          <div class="panel-heading">
+            <h2 id="study-title">Ta session de révision</h2>
+            <span class="count" id="progress" aria-live="polite">0 mot à réviser</span>
+          </div>
+          <div class="flashcard" id="flashcard" aria-live="polite">
+            <span class="placeholder-icon" aria-hidden="true">🌿</span>
+            <p class="placeholder-title">Prêt·e à faire travailler ta mémoire ?</p>
+            <p class="placeholder-copy">Ajoute des photos ou des mots avec leur traduction, puis lance ta première session.</p>
+          </div>
+          <p class="answer hidden" id="answer" aria-live="polite">••••••</p>
+          <div class="card-actions">
+            <button class="button primary" id="start-button" type="button" disabled>▶ &nbsp;Commencer</button>
+            <button class="button secondary" id="reveal-button" type="button" disabled>👁 &nbsp;Voir le mot</button>
+            <button class="button secondary" id="next-button" type="button" disabled>Changer &nbsp;↗</button>
+            <button class="button secondary" id="auto-button" type="button" aria-pressed="false" disabled>▶ &nbsp;Défilement auto</button>
+          </div>
+          <p class="hint">Prends ton temps : la réponse reste affichée jusqu’à la prochaine fiche.</p>
+        </section>
+
+        <aside class="panel side-panel" aria-labelledby="add-title">
+          <h2 id="add-title">Ajouter un mot</h2>
+          <p class="side-copy">Crée une fiche avec une photo ou avec le mot allemand et sa traduction française.</p>
+          <form id="add-form">
+            <label class="field-label" for="entry-mode">Type de fiche</label>
+            <select class="word-input" id="entry-mode" name="entry-mode">
+              <option value="photo">Avec une photo</option>
+              <option value="translation">Sans image (avec traduction)</option>
+            </select>
+            <label class="field-label" for="word-input">Mot en allemand</label>
+            <input class="word-input" id="word-input" name="word" type="text" placeholder="Ex. der Apfel" autocomplete="off" required maxlength="80">
+            <div id="translation-field" hidden>
+              <label class="field-label" for="translation-input">Traduction en français</label>
+              <input class="word-input" id="translation-input" name="translation" type="text" placeholder="Ex. la pomme" autocomplete="off" maxlength="80" disabled>
+            </div>
+            <div id="photo-field">
+              <label class="field-label" for="photo-input">Photo correspondante</label>
+              <label class="upload-box" for="photo-input">
+                <span class="upload-icon" aria-hidden="true">↥</span>
+                <span class="upload-title" id="upload-title">Choisir une photo</span>
+                <span class="upload-caption">JPG, PNG, GIF ou WebP</span>
+                <input id="photo-input" name="photo" type="file" accept="image/*" required>
+              </label>
+            </div>
+            <button class="button primary add-button" type="submit">＋ &nbsp;Ajouter à ma liste</button>
+            <p class="feedback" id="feedback" aria-live="polite"></p>
+          </form>
+        </aside>
+      </div>
+
+      <section class="panel library" aria-labelledby="library-title">
+        <div class="library-heading">
+          <h2 id="library-title">Ma liste de mots</h2>
+          <button class="clear-button" id="clear-button" type="button" hidden>Tout effacer</button>
+        </div>
+        <p class="empty-library" id="empty-library">Tes mots ajoutés apparaîtront ici.</p>
+        <ul class="word-list" id="word-list" aria-label="Mots à réviser"></ul>
+        <p class="footer-note">Tes photos et tes mots restent dans cette page pendant ta session. Ils ne sont pas envoyés sur Internet.</p>
+      </section>
+    </main>
+  </div>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>
